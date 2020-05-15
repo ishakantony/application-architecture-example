@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import Navbar from "./components/Navbar";
 import AddTicket from "./components/AddTicket";
-import ListTicket from "./components/ListTicket";
+import Tickets from "./components/Tickets";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </Row>
         <Row className="mt-4">
           <Col className="d-flex flex-wrap justify-content-between">
-            <ListTicket />
+            <Tickets />
           </Col>
         </Row>
       </Container>

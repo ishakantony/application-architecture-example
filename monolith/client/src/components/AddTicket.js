@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Col, Card, Button, Form, Alert } from "react-bootstrap";
 
 export default () => {
@@ -6,16 +7,32 @@ export default () => {
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!name || !subject || !description) {
+      setErrorMessage(
+        `Name, Subject and Description are <strong>mandatory</strong>`
+      );
       setShowError(true);
       return;
     }
 
-    alert("Form submitted");
+    try {
+      const response = await axios.post("http://localhost:4000/api/tickets", {
+        name,
+        subject,
+        description,
+      });
+
+      alert("Ticket submitted");
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(`Something went wrong with the server`);
+      setShowError(true);
+    }
   };
 
   return (
@@ -30,9 +47,7 @@ export default () => {
               dismissible
             >
               <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-              <p>
-                Name, Subject and Description are <strong>mandatory</strong>
-              </p>
+              <p>{errorMessage}</p>
             </Alert>
           )}
           <Form.Row>
