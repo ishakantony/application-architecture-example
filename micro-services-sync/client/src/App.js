@@ -3,8 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import Navbar from "./components/Navbar";
 import AddTicket from "./components/AddTicket";
-// import Tickets from "./components/Tickets";
-import Tickets from "./components/TicketsWithComments";
+import Tickets from "./components/Tickets";
+// import Tickets from "./components/TicketsWithComments";
 
 function App() {
   return (
