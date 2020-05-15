@@ -3,7 +3,6 @@ const { randomBytes } = require("crypto");
 
 const router = express.Router();
 
-const { TICKETS } = require("../data/tickets");
 const { COMMENTS } = require("../data/comments");
 
 router.post("/api/tickets/:id/comments", (req, res) => {
