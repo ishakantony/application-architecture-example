@@ -17,7 +17,7 @@ router.post("/api/tickets/:id/comments", (req, res) => {
 
   COMMENTS.push(commentObj);
 
-  console.log(`Comment created (${id}) for ticket (${ticketId})`);
+  console.log(`Comment created (${id}) for ticket (${req.params.id})`);
 
   res.send(commentObj);
 });
