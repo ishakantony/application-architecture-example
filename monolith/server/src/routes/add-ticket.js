@@ -18,6 +18,8 @@ router.post("/api/tickets", (req, res) => {
 
   TICKETS[id] = ticket;
 
+  console.log(`Ticket created (${id})`);
+
   res.send(ticket);
 });
 
