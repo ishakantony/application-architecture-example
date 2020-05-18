@@ -14,7 +14,7 @@ export default () => {
           height="30"
           className="d-inline-block align-top"
         />
-        Example Monolith Trouble Ticket App
+        Example Micro Services Async Trouble Ticket App
       </Navbar.Brand>
     </Navbar>
   );
