@@ -17,7 +17,7 @@ router.get('/api/tickets/:id/comments', (req, res) => {
   const comments = COMMENTS.filter((c) => c.ticketId === ticket.id)
 
   console.log(
-    `[RESPONSE] Got ${comments.length} comments for ticket (${ticket.id})`
+    `[RESPONSE] Return ${comments.length} comments for ticket (${ticket.id})`
   )
 
   res.send({

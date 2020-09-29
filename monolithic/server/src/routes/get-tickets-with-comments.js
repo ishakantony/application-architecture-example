@@ -14,12 +14,12 @@ router.get('/api/tickets-with-comments', async (req, res) => {
       (c) => c.ticketId === ticketId
     )
     console.log(
-      `[RESPONSE] Got ${ticketsWithComments[ticketId].comments.length} comments for ticket (${ticketId})`
+      `Got ${ticketsWithComments[ticketId].comments.length} comments for ticket (${ticketId})`
     )
   }
 
   console.log(
-    `[RESPONSE] Got ${Object.keys(ticketsWithComments).length} tickets`
+    `[RESPONSE] Return ${Object.keys(ticketsWithComments).length} tickets`
   )
 
   res.send({
