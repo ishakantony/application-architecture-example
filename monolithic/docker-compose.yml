@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  # client:
+  #   image: ishakantony/example-monolithic-client
+  #   build:
+  #     context: ./client
+  #   logging:
+  #     driver: "none"
+  #   ports:
+  #     - 3000:80
+
+  server:
+    image: ishakantony/example-monolithic-server
+    build:
+      context: ./server
+    ports:
+      - 4000:4000

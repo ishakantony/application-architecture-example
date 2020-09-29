@@ -1,25 +1,28 @@
-const express = require("express");
+const express = require('express')
 
-const router = express.Router();
+const router = express.Router()
 
-const { COMMENTS } = require("../data/comments");
-const { TICKETS } = require("../data/tickets");
+const { COMMENTS } = require('../data/comments')
+const { TICKETS } = require('../data/tickets')
 
-router.get("/api/tickets/:id/comments", (req, res) => {
-  const ticket = TICKETS[req.params.id];
+router.get('/api/tickets/:id/comments', (req, res) => {
+  console.log('[REQUEST] Client request comments for ticket ' + req.params.id)
+  const ticket = TICKETS[req.params.id]
 
   if (!ticket) {
-    res.sendStatus(404);
-    return;
+    res.sendStatus(404)
+    return
   }
 
-  const comments = COMMENTS.filter((c) => c.ticketId === ticket.id);
+  const comments = COMMENTS.filter((c) => c.ticketId === ticket.id)
 
-  console.log(`Got ${comments.length} comments for ticket (${ticket.id})`);
+  console.log(
+    `[RESPONSE] Got ${comments.length} comments for ticket (${ticket.id})`
+  )
 
   res.send({
     comments,
-  });
-});
+  })
+})
 
-exports.getCommentsRoute = router;
+exports.getCommentsRoute = router
