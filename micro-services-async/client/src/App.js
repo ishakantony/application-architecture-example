@@ -1,10 +1,10 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import AddTicket from './components/AddTicket'
+import Navbar from './components/Navbar'
+import Tickets from './components/Tickets'
 
-import Navbar from "./components/Navbar";
-import AddTicket from "./components/AddTicket";
-// import Tickets from "./components/Tickets";
-import Tickets from "./components/TicketsWithComments";
+// import Tickets from "./components/TicketsWithComments";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

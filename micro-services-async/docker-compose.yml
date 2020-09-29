@@ -1,0 +1,53 @@
+version: "3.3"
+
+services:
+  # client:
+  #   image: ishakantony/example-ms-async-client
+  #   build:
+  #     context: ./client
+  #   logging:
+  #     driver: "none"
+  #   ports:
+  #     - 3000:80
+
+  tickets:
+    image: ishakantony/example-ms-async-tickets
+    build:
+      context: ./tickets
+    ports:
+      - 4000:4000
+    environment:
+      - EVENT_BUS_HOST=http://event-bus:4003
+    depends_on:
+      - event-bus
+
+  comments:
+    image: ishakantony/example-ms-async-comments
+    build:
+      context: ./comments
+    ports:
+      - 4001:4001
+    environment:
+      - EVENT_BUS_HOST=http://event-bus:4003
+    depends_on:
+      - event-bus
+
+  tickets-with-comments:
+    image: ishakantony/example-ms-async-tickets-with-comments
+    build:
+      context: ./tickets-with-comments
+    ports:
+      - 4002:4002
+    environment:
+      - EVENT_BUS_HOST=http://event-bus:4003
+    depends_on:
+      - event-bus
+
+  event-bus:
+    image: ishakantony/example-ms-async-event-bus
+    build:
+      context: ./event-bus
+    environment:
+      - TICKETS_SERVICE_HOST=http://tickets:4000
+      - COMMENTS_SERVICE_HOST=http://comments:4001
+      - TICKETS_WITH_COMMENTS_SERVICE_HOST=http://tickets-with-comments:4002
