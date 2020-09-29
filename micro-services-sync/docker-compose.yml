@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  # client:
+  #   image: ishakantony/example-ms-sync-client
+  #   build:
+  #     context: ./client
+  #   logging:
+  #     driver: "none"
+  #   ports:
+  #     - 3000:80
+
+  tickets:
+    image: ishakantony/example-ms-sync-tickets
+    build:
+      context: ./tickets
+    ports:
+      - 4000:4000
+
+  comments:
+    image: ishakantony/example-ms-sync-comments
+    build:
+      context: ./comments
+    ports:
+      - 4001:4001
+
+  tickets-with-comments:
+    image: ishakantony/example-ms-sync-tickets-with-comments
+    build:
+      context: ./tickets-with-comments
+    ports:
+      - 4002:4002
+    environment:
+      - TICKETS_SERVICE_HOST=http://tickets:4000
+      - COMMENTS_SERVICE_HOST=http://comments:4001
