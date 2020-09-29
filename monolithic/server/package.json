@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index"
+    "dev": "nodemon -r dotenv/config src/index",
+    "start": "node -r dotenv/config src/index"
   },
   "keywords": [],
   "author": "",
